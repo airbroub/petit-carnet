@@ -1,272 +1,211 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notre Petit Carnet 🌿</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --cream:      #faf6ef;
-      --paper:      #f4ede0;
-      --warm-tan:   #e8d5b7;
-      --mocha:      #8b6e52;
-      --espresso:   #4a3228;
-      --sage:       #7a8c6e;
-      --dusty-rose: #c4856a;
-      --ink:        #2e1f14;
-      --gold:       #b8942e;
-      --shadow:     rgba(74,50,40,0.12);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Notre Petit Carnet 🌿</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #faf6ef;
+  --paper: #f4ede0;
+  --warm-tan: #e8d5b7;
+  --mocha: #8b6e52;
+  --espresso: #4a3228;
+  --sage: #7a8c6e;
+  --dusty-rose: #c4856a;
+  --ink: #2e1f14;
+  --gold: #b8942e;
+  --shadow: rgba(74,50,40,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(196,133,106,0.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(122,140,110,0.10) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  font-family: 'Lora', serif;
+  color: var(--ink);
+  min-height: 100vh;
+  padding: 2rem 1rem 5rem;
+}
 
-    body {
-      background-color: var(--cream);
-      background-image:
-        radial-gradient(ellipse at 20% 10%, rgba(196,133,106,0.13) 0%, transparent 55%),
-        radial-gradient(ellipse at 80% 90%, rgba(122,140,110,0.10) 0%, transparent 55%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      font-family: 'Lora', serif;
-      color: var(--ink);
-      min-height: 100vh;
-      padding: 2rem 1rem 5rem;
-    }
+/* HEADER */
+header { text-align: center; margin-bottom: 2.5rem; animation: fadeDown .7s ease both; }
+header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--espresso); letter-spacing: -0.5px; line-height: 1.1; }
+header h1 span { color: var(--dusty-rose); font-style: italic; }
+header p { font-size: .88rem; color: var(--mocha); margin-top: .4rem; font-style: italic; }
+.header-rule { width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: .9rem auto 0; }
 
-    /* HEADER */
-    header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      animation: fadeDown .7s ease both;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      color: var(--espresso);
-      letter-spacing: -0.5px;
-      line-height: 1.1;
-    }
-    header h1 span { color: var(--dusty-rose); font-style: italic; }
-    header p { font-size: .88rem; color: var(--mocha); margin-top: .4rem; font-style: italic; }
-    .header-rule {
-      width: 80px; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: .9rem auto 0;
-    }
+/* TABS */
+.tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; animation: fadeUp .7s .1s ease both; }
 
-    /* TABS */
-    .tabs {
-      display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem;
-      margin-bottom: 2rem;
-      animation: fadeUp .7s .1s ease both;
-    }
-    .tab-btn {
-      background: var(--paper);
-      border: 1.5px solid var(--warm-tan);
-      color: var(--mocha);
-      font-family: 'Lora', serif;
-      font-size: .85rem;
-      padding: .45rem 1.1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all .22s;
-      display: flex; align-items: center; gap: .4rem;
-    }
-    .tab-btn:hover { border-color: var(--mocha); color: var(--espresso); }
-    .tab-btn.active {
-      background: var(--espresso); color: var(--cream); border-color: var(--espresso);
-      box-shadow: 0 3px 14px var(--shadow);
-    }
-    .tab-count {
-      font-size: .68rem; border-radius: 10px; padding: 0 6px;
-      background: var(--warm-tan); color: var(--espresso);
-      min-width: 18px; text-align: center;
-    }
-    .tab-btn.active .tab-count { background: rgba(255,255,255,.18); color: var(--cream); }
+.tab-wrap { position: relative; display: inline-flex; align-items: center; }
 
-    /* CARD */
-    .card {
-      max-width: 700px; margin: 0 auto;
-      background: var(--paper);
-      border-radius: 18px;
-      border: 1.5px solid var(--warm-tan);
-      box-shadow: 0 8px 36px var(--shadow), 0 1px 0 rgba(255,255,255,.6) inset;
-      padding: 2rem 2rem 1.6rem;
-      animation: fadeUp .6s .15s ease both;
-      position: relative; overflow: hidden;
-    }
-    .card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--dusty-rose), var(--gold), var(--sage));
-      border-radius: 18px 18px 0 0;
-    }
+.tab-btn {
+  background: var(--paper);
+  border: 1.5px solid var(--warm-tan);
+  color: var(--mocha);
+  font-family: 'Lora', serif;
+  font-size: .85rem;
+  padding: .45rem 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all .22s;
+  display: flex; align-items: center; gap: .4rem;
+}
+.tab-btn:hover { border-color: var(--mocha); color: var(--espresso); }
+.tab-btn.active { background: var(--espresso); color: var(--cream); border-color: var(--espresso); box-shadow: 0 3px 14px var(--shadow); }
+.tab-count { font-size: .68rem; border-radius: 10px; padding: 0 6px; background: var(--warm-tan); color: var(--espresso); min-width: 18px; text-align: center; }
+.tab-btn.active .tab-count { background: rgba(255,255,255,.18); color: var(--cream); }
 
-    /* ADD FORM */
-    .add-form { display: flex; gap: .6rem; margin-bottom: 1.6rem; }
-    .add-form input {
-      flex: 1;
-      background: var(--cream);
-      border: 1.5px solid var(--warm-tan);
-      border-radius: 10px;
-      padding: .6rem 1rem;
-      font-family: 'Lora', serif; font-size: .95rem; color: var(--ink);
-      outline: none; transition: border-color .2s;
-    }
-    .add-form input:focus { border-color: var(--mocha); }
-    .add-form input::placeholder { color: var(--mocha); opacity: .55; }
-    .add-form button {
-      background: var(--espresso); color: var(--cream);
-      border: none; border-radius: 10px;
-      padding: 0 1.15rem; font-size: 1.3rem;
-      cursor: pointer; transition: background .2s, transform .15s;
-    }
-    .add-form button:hover { background: var(--mocha); }
-    .add-form button:active { transform: scale(.94); }
+/* Bouton édition catégorie */
+.tab-edit-btn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px; height: 18px;
+  background: var(--mocha);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 9px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity .18s, background .18s;
+  z-index: 2;
+  line-height: 1;
+}
+.tab-wrap:hover .tab-edit-btn { opacity: 1; }
+.tab-edit-btn:hover { background: var(--espresso); }
 
-    /* SECTION META */
-    .section-meta {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 1rem; padding-bottom: .6rem;
-      border-bottom: 1px dashed var(--warm-tan);
-    }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--espresso); font-style: italic; }
-    .filter-btns { display: flex; gap: .35rem; }
-    .filter-btn {
-      font-size: .72rem; font-family: 'Lora', serif; color: var(--mocha);
-      background: none; border: 1px solid var(--warm-tan); border-radius: 20px;
-      padding: 2px 10px; cursor: pointer; transition: all .18s;
-    }
-    .filter-btn.active, .filter-btn:hover { background: var(--mocha); color: var(--cream); border-color: var(--mocha); }
+/* CARD */
+.card {
+  max-width: 700px; margin: 0 auto;
+  background: var(--paper);
+  border-radius: 18px;
+  border: 1.5px solid var(--warm-tan);
+  box-shadow: 0 8px 36px var(--shadow), 0 1px 0 rgba(255,255,255,.6) inset;
+  padding: 2rem 2rem 1.6rem;
+  animation: fadeUp .6s .15s ease both;
+  position: relative; overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--dusty-rose), var(--gold), var(--sage));
+  border-radius: 18px 18px 0 0;
+}
 
-    /* ITEMS */
-    .items-list { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
-    .item {
-      display: flex; align-items: center; gap: .7rem;
-      padding: .6rem .85rem;
-      background: var(--cream); border-radius: 10px;
-      border: 1px solid transparent;
-      transition: border-color .2s, box-shadow .2s;
-      animation: slideIn .28s ease both;
-    }
-    .item:hover { border-color: var(--warm-tan); box-shadow: 0 2px 10px var(--shadow); }
-    .item.done { opacity: .5; }
+/* ADD FORM */
+.add-form { display: flex; gap: .6rem; margin-bottom: 1.6rem; }
+.add-form input {
+  flex: 1;
+  background: var(--cream);
+  border: 1.5px solid var(--warm-tan);
+  border-radius: 10px;
+  padding: .6rem 1rem;
+  font-family: 'Lora', serif; font-size: .95rem; color: var(--ink);
+  outline: none; transition: border-color .2s;
+}
+.add-form input:focus { border-color: var(--mocha); }
+.add-form input::placeholder { color: var(--mocha); opacity: .55; }
+.add-form button {
+  background: var(--espresso); color: var(--cream);
+  border: none; border-radius: 10px;
+  padding: 0 1.15rem; font-size: 1.3rem;
+  cursor: pointer; transition: background .2s, transform .15s;
+}
+.add-form button:hover { background: var(--mocha); }
+.add-form button:active { transform: scale(.94); }
 
-    .item-check {
-      width: 20px; height: 20px; flex-shrink: 0;
-      border-radius: 5px; border: 1.8px solid var(--warm-tan);
-      background: white; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: all .2s;
-    }
-    .item-check:hover { border-color: var(--mocha); }
-    .item-check.checked { background: var(--sage); border-color: var(--sage); }
-    .item-check.checked::after { content: '✓'; color: white; font-size: 11px; font-weight: bold; }
+/* SECTION META */
+.section-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: .6rem; border-bottom: 1px dashed var(--warm-tan); }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--espresso); font-style: italic; }
+.filter-btns { display: flex; gap: .35rem; }
+.filter-btn { font-size: .72rem; font-family: 'Lora', serif; color: var(--mocha); background: none; border: 1px solid var(--warm-tan); border-radius: 20px; padding: 2px 10px; cursor: pointer; transition: all .18s; }
+.filter-btn.active, .filter-btn:hover { background: var(--mocha); color: var(--cream); border-color: var(--mocha); }
 
-    .item-bullet {
-      width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%;
-      background: var(--dusty-rose); margin: 0 6px;
-      transition: background .2s;
-    }
-    .item-bullet.done-b { background: var(--sage); }
+/* ITEMS */
+.items-list { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+.item { display: flex; align-items: center; gap: .7rem; padding: .6rem .85rem; background: var(--cream); border-radius: 10px; border: 1px solid transparent; transition: border-color .2s, box-shadow .2s; animation: slideIn .28s ease both; }
+.item:hover { border-color: var(--warm-tan); box-shadow: 0 2px 10px var(--shadow); }
+.item.done { opacity: .5; }
+.item-check { width: 20px; height: 20px; flex-shrink: 0; border-radius: 5px; border: 1.8px solid var(--warm-tan); background: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; }
+.item-check:hover { border-color: var(--mocha); }
+.item-check.checked { background: var(--sage); border-color: var(--sage); }
+.item-check.checked::after { content: '✓'; color: white; font-size: 11px; font-weight: bold; }
+.item-bullet { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: var(--dusty-rose); margin: 0 6px; transition: background .2s; }
+.item-bullet.done-b { background: var(--sage); }
+.item-text { flex: 1; font-size: .93rem; color: var(--ink); line-height: 1.4; }
+.item.done .item-text { text-decoration: line-through; color: var(--mocha); }
+.item-edit-input { flex: 1; font-family: 'Lora', serif; font-size: .93rem; color: var(--ink); background: transparent; border: none; border-bottom: 1.5px solid var(--mocha); outline: none; padding: 1px 2px; }
+.item-actions { display: flex; gap: .25rem; opacity: 0; transition: opacity .18s; }
+.item:hover .item-actions { opacity: 1; }
+.action-btn { background: none; border: none; font-size: .82rem; cursor: pointer; padding: 3px 6px; border-radius: 5px; color: var(--mocha); transition: background .15s; }
+.action-btn:hover { background: var(--warm-tan); }
+.action-btn.del:hover { background: #f3c4b4; color: #a03a1a; }
 
-    .item-text { flex: 1; font-size: .93rem; color: var(--ink); line-height: 1.4; }
-    .item.done .item-text { text-decoration: line-through; color: var(--mocha); }
+/* EMPTY */
+.empty { text-align: center; padding: 2.5rem 1rem; color: var(--mocha); font-style: italic; font-size: .88rem; }
+.empty span { font-size: 2rem; display: block; margin-bottom: .5rem; }
 
-    .item-edit-input {
-      flex: 1; font-family: 'Lora', serif; font-size: .93rem; color: var(--ink);
-      background: transparent; border: none; border-bottom: 1.5px solid var(--mocha); outline: none; padding: 1px 2px;
-    }
+/* ADD CATEGORY BUTTON */
+.add-cat-btn { background: none; border: 1.5px dashed var(--warm-tan); color: var(--mocha); font-family: 'Lora', serif; font-size: .82rem; padding: .4rem 1rem; border-radius: 30px; cursor: pointer; transition: all .2s; }
+.add-cat-btn:hover { border-color: var(--mocha); color: var(--espresso); }
 
-    .item-actions { display: flex; gap: .25rem; opacity: 0; transition: opacity .18s; }
-    .item:hover .item-actions { opacity: 1; }
-    .action-btn {
-      background: none; border: none; font-size: .82rem; cursor: pointer;
-      padding: 3px 6px; border-radius: 5px; color: var(--mocha); transition: background .15s;
-    }
-    .action-btn:hover { background: var(--warm-tan); }
-    .action-btn.del:hover { background: #f3c4b4; color: #a03a1a; }
+/* MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(46,31,20,.45); display: flex; align-items: center; justify-content: center; z-index: 100; animation: fadeIn .2s ease; }
+.modal { background: var(--paper); border-radius: 18px; padding: 2rem; width: 90%; max-width: 370px; border: 1.5px solid var(--warm-tan); box-shadow: 0 20px 60px rgba(46,31,20,.28); animation: popIn .25s ease; }
+.modal h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--espresso); margin-bottom: 1.1rem; }
+.modal label { font-size: .82rem; color: var(--mocha); display: block; margin-bottom: .3rem; }
+.modal input, .modal select { width: 100%; background: var(--cream); border: 1.5px solid var(--warm-tan); border-radius: 8px; padding: .52rem .85rem; font-family: 'Lora', serif; font-size: .9rem; color: var(--ink); outline: none; margin-bottom: .9rem; transition: border-color .2s; }
+.modal input:focus, .modal select:focus { border-color: var(--mocha); }
+.modal-actions { display: flex; gap: .6rem; justify-content: flex-end; }
+.btn-cancel { background: none; border: 1.5px solid var(--warm-tan); color: var(--mocha); font-family: 'Lora', serif; font-size: .88rem; padding: .42rem 1rem; border-radius: 8px; cursor: pointer; transition: all .18s; }
+.btn-cancel:hover { border-color: var(--mocha); }
+.btn-confirm { background: var(--espresso); color: var(--cream); border: none; font-family: 'Lora', serif; font-size: .88rem; padding: .42rem 1.2rem; border-radius: 8px; cursor: pointer; transition: background .18s; }
+.btn-confirm:hover { background: var(--mocha); }
 
-    /* EMPTY */
-    .empty { text-align: center; padding: 2.5rem 1rem; color: var(--mocha); font-style: italic; font-size: .88rem; }
-    .empty span { font-size: 2rem; display: block; margin-bottom: .5rem; }
+/* Bouton supprimer catégorie dans modal édition */
+.btn-delete-cat {
+  background: none;
+  border: 1.5px solid #e8b4a0;
+  color: #a03a1a;
+  font-family: 'Lora', serif;
+  font-size: .82rem;
+  padding: .42rem .9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .18s;
+  margin-right: auto;
+}
+.btn-delete-cat:hover { background: #f3c4b4; border-color: #a03a1a; }
 
-    /* ADD CATEGORY BUTTON */
-    .add-cat-btn {
-      background: none; border: 1.5px dashed var(--warm-tan);
-      color: var(--mocha); font-family: 'Lora', serif; font-size: .82rem;
-      padding: .4rem 1rem; border-radius: 30px; cursor: pointer; transition: all .2s;
-    }
-    .add-cat-btn:hover { border-color: var(--mocha); color: var(--espresso); }
+/* LOADING */
+.loading { text-align: center; padding: 3rem; color: var(--mocha); font-style: italic; }
+.spinner { width: 30px; height: 30px; margin: 0 auto 1rem; border: 3px solid var(--warm-tan); border-top-color: var(--mocha); border-radius: 50%; animation: spin .8s linear infinite; }
 
-    /* MODAL */
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(46,31,20,.45);
-      display: flex; align-items: center; justify-content: center; z-index: 100;
-      animation: fadeIn .2s ease;
-    }
-    .modal {
-      background: var(--paper); border-radius: 18px; padding: 2rem;
-      width: 90%; max-width: 370px; border: 1.5px solid var(--warm-tan);
-      box-shadow: 0 20px 60px rgba(46,31,20,.28);
-      animation: popIn .25s ease;
-    }
-    .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--espresso); margin-bottom: 1.1rem; }
-    .modal label { font-size: .82rem; color: var(--mocha); display: block; margin-bottom: .3rem; }
-    .modal input, .modal select {
-      width: 100%; background: var(--cream); border: 1.5px solid var(--warm-tan);
-      border-radius: 8px; padding: .52rem .85rem; font-family: 'Lora', serif;
-      font-size: .9rem; color: var(--ink); outline: none; margin-bottom: .9rem;
-      transition: border-color .2s;
-    }
-    .modal input:focus, .modal select:focus { border-color: var(--mocha); }
-    .modal-actions { display: flex; gap: .6rem; justify-content: flex-end; }
-    .btn-cancel {
-      background: none; border: 1.5px solid var(--warm-tan); color: var(--mocha);
-      font-family: 'Lora', serif; font-size: .88rem; padding: .42rem 1rem;
-      border-radius: 8px; cursor: pointer; transition: all .18s;
-    }
-    .btn-cancel:hover { border-color: var(--mocha); }
-    .btn-confirm {
-      background: var(--espresso); color: var(--cream); border: none;
-      font-family: 'Lora', serif; font-size: .88rem; padding: .42rem 1.2rem;
-      border-radius: 8px; cursor: pointer; transition: background .18s;
-    }
-    .btn-confirm:hover { background: var(--mocha); }
+/* TOAST */
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(18px); background: var(--espresso); color: var(--cream); font-family: 'Lora', serif; font-size: .84rem; padding: .55rem 1.4rem; border-radius: 30px; box-shadow: 0 4px 20px rgba(0,0,0,.2); opacity: 0; transition: all .3s; pointer-events: none; z-index: 200; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    /* LOADING */
-    .loading { text-align: center; padding: 3rem; color: var(--mocha); font-style: italic; }
-    .spinner {
-      width: 30px; height: 30px; margin: 0 auto 1rem;
-      border: 3px solid var(--warm-tan); border-top-color: var(--mocha);
-      border-radius: 50%; animation: spin .8s linear infinite;
-    }
+/* ANIMATIONS */
+@keyframes fadeDown { from { opacity:0; transform:translateY(-16px) } to { opacity:1; transform:none } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:none } }
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+@keyframes slideIn { from { opacity:0; transform:translateX(-10px) } to { opacity:1; transform:none } }
+@keyframes popIn { from { opacity:0; transform:scale(.92) } to { opacity:1; transform:scale(1) } }
+@keyframes spin { to { transform:rotate(360deg) } }
 
-    /* TOAST */
-    .toast {
-      position: fixed; bottom: 2rem; left: 50%;
-      transform: translateX(-50%) translateY(18px);
-      background: var(--espresso); color: var(--cream);
-      font-family: 'Lora', serif; font-size: .84rem;
-      padding: .55rem 1.4rem; border-radius: 30px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.2);
-      opacity: 0; transition: all .3s; pointer-events: none; z-index: 200;
-    }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-    /* ANIMATIONS */
-    @keyframes fadeDown { from { opacity:0; transform:translateY(-16px) } to { opacity:1; transform:none } }
-    @keyframes fadeUp   { from { opacity:0; transform:translateY(16px)  } to { opacity:1; transform:none } }
-    @keyframes fadeIn   { from { opacity:0 } to { opacity:1 } }
-    @keyframes slideIn  { from { opacity:0; transform:translateX(-10px) } to { opacity:1; transform:none } }
-    @keyframes popIn    { from { opacity:0; transform:scale(.92) } to { opacity:1; transform:scale(1) } }
-    @keyframes spin     { to { transform:rotate(360deg) } }
-
-    @media (max-width:500px) {
-      .card { padding: 1.3rem 1rem 1rem; }
-      .section-meta { flex-direction: column; align-items: flex-start; gap: .5rem; }
-    }
-  </style>
+@media (max-width:500px) {
+  .card { padding: 1.3rem 1rem 1rem; }
+  .section-meta { flex-direction: column; align-items: flex-start; gap: .5rem; }
+}
+</style>
 </head>
 <body>
 
@@ -302,235 +241,330 @@
   </div>
 </div>
 
+<!-- Modal édition catégorie -->
+<div class="modal-overlay" id="editCatModal" style="display:none;">
+  <div class="modal">
+    <h3>Modifier la catégorie</h3>
+    <label>Nom</label>
+    <input type="text" id="editCatName" placeholder="Nom…" />
+    <label>Icône (emoji)</label>
+    <input type="text" id="editCatIcon" placeholder="📝" maxlength="2" />
+    <label>Style d'affichage</label>
+    <select id="editCatStyle">
+      <option value="checkbox">✅ Cases à cocher</option>
+      <option value="bullet">• Points</option>
+    </select>
+    <div class="modal-actions">
+      <button class="btn-delete-cat" onclick="deleteCategory()">🗑 Supprimer</button>
+      <button class="btn-cancel" onclick="closeEditModal()">Annuler</button>
+      <button class="btn-confirm" onclick="saveCategory()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
- 
-  import {
-    getFirestore, collection, doc,
-    onSnapshot, addDoc, updateDoc, deleteDoc,
-    serverTimestamp, query, orderBy, getDocs
-  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, collection, doc,
+  onSnapshot, addDoc, updateDoc, deleteDoc,
+  serverTimestamp, query, orderBy, getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-  /* ═══════════════════════════════════════════════════════
-     🔥  REMPLACE CES VALEURS PAR CELLES DE TON PROJET FIREBASE
-     Firebase Console → Paramètres → Général → Config web
-  ═══════════════════════════════════════════════════════ */
-  const firebaseConfig = {
+const firebaseConfig = {
+  apiKey: "AIzaSyAM_Ytol5hLcrqYamoYjqMJ8bD2ArXRbkc",
+  authDomain: "petit-carnet.firebaseapp.com",
+  databaseURL: "https://petit-carnet-default-rtdb.firebaseio.com",
+  projectId: "petit-carnet",
+  storageBucket: "petit-carnet.firebasestorage.app",
+  messagingSenderId: "954345192102",
+  appId: "1:954345192102:web:afc99cd997ee68c9c51267",
+  measurementId: "G-8KZ5LWWCNC"
+};
 
-      apiKey: "AIzaSyAM_Ytol5hLcrqYamoYjqMJ8bD2ArXRbkc",
-      authDomain: "petit-carnet.firebaseapp.com",
-      databaseURL: "https://petit-carnet-default-rtdb.firebaseio.com",
-      projectId: "petit-carnet",
-      storageBucket: "petit-carnet.firebasestorage.app",
-      messagingSenderId: "954345192102",
-      appId: "1:954345192102:web:afc99cd997ee68c9c51267",
-      measurementId: "G-8KZ5LWWCNC"
-  };
-  /* ═══════════════════════════════════════════════════════ */
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  const app = initializeApp(firebaseConfig);
-  const db  = getFirestore(app);
-  
-  
-  bootstrap();
+let categories = [];
+let items = {};
+let activeTab = null;
+let filterMode = {};
+let unsubs = {};
+let editingCatId = null; // id de la catégorie en cours d'édition
 
-  let categories = [];
-  let items      = {};
-  let activeTab  = null;
-  let filterMode = {};
-  let unsubs     = {};
+const tabsEl = document.getElementById('tabsContainer');
+const card = document.getElementById('mainCard');
 
-  const tabsEl = document.getElementById('tabsContainer');
-  const card   = document.getElementById('mainCard');
+// ── Bootstrap : catégories par défaut si vide ──
+async function bootstrap() {
+  const snap = await getDocs(collection(db, 'categories'));
+  if (snap.empty) {
+    const defaults = [
+      { name:'Restaurants', icon:'🍽️', style:'checkbox', order:0 },
+      { name:'Films',       icon:'🎬', style:'bullet',   order:1 },
+      { name:'Séries',      icon:'📺', style:'bullet',   order:2 },
+    ];
+    for (const d of defaults) {
+      await addDoc(collection(db, 'categories'), { ...d, createdAt: serverTimestamp() });
+    }
+  }
+  onSnapshot(query(collection(db, 'categories'), orderBy('order')), snap => {
+    categories = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    if (!activeTab && categories.length) activeTab = categories[0].id;
+    renderTabs(); renderCard();
+  });
+}
 
-  // ── Bootstrap : catégories par défaut si vide ──
-  async function bootstrap() {
-    const snap = await getDocs(collection(db, 'categories'));
-    if (snap.empty) {
-      const defaults = [
-        { name:'Restaurants', icon:'🍽️', style:'checkbox', order:0 },
-        { name:'Films',       icon:'🎬', style:'bullet',   order:1 },
-        { name:'Séries',      icon:'📺', style:'bullet',   order:2 },
-      ];
-      for (const d of defaults) {
-        await addDoc(collection(db, 'categories'), { ...d, createdAt: serverTimestamp() });
+// ── TABS ──
+function renderTabs() {
+  tabsEl.innerHTML = '';
+  categories.forEach(cat => {
+    const count = (items[cat.id] || []).filter(i => !i.done).length;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'tab-wrap';
+
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (activeTab === cat.id ? ' active' : '');
+    btn.innerHTML = `${cat.icon} ${cat.name} <span class="tab-count">${count}</span>`;
+    btn.onclick = () => { activeTab = cat.id; renderTabs(); renderCard(); };
+
+    // Bouton ⚙️ édition catégorie
+    const editBtn = document.createElement('button');
+    editBtn.className = 'tab-edit-btn';
+    editBtn.title = 'Modifier la catégorie';
+    editBtn.textContent = '✏';
+    editBtn.onclick = (e) => {
+      e.stopPropagation();
+      openEditModal(cat.id);
+    };
+
+    wrap.appendChild(btn);
+    wrap.appendChild(editBtn);
+    tabsEl.appendChild(wrap);
+  });
+
+  const addBtn = document.createElement('button');
+  addBtn.className = 'add-cat-btn';
+  addBtn.textContent = '＋ Catégorie';
+  addBtn.onclick = openModal;
+  tabsEl.appendChild(addBtn);
+}
+
+// ── CARD ──
+function renderCard() {
+  if (!activeTab) { card.innerHTML = '<div class="empty"><span>🌿</span>Aucune catégorie.</div>'; return; }
+  const cat = categories.find(c => c.id === activeTab);
+  if (!cat) return;
+
+  if (!unsubs[cat.id]) {
+    unsubs[cat.id] = onSnapshot(
+      query(collection(db, 'categories', cat.id, 'items'), orderBy('createdAt')),
+      snap => {
+        items[cat.id] = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderTabs();
+        if (activeTab === cat.id) renderCard();
       }
-    }
-    onSnapshot(query(collection(db, 'categories'), orderBy('order')), snap => {
-      categories = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      if (!activeTab && categories.length) activeTab = categories[0].id;
-      renderTabs(); renderCard();
-    });
-  }
-
-  // ── TABS ──
-  function renderTabs() {
-    tabsEl.innerHTML = '';
-    categories.forEach(cat => {
-      const count = (items[cat.id] || []).filter(i => !i.done).length;
-      const btn = document.createElement('button');
-      btn.className = 'tab-btn' + (activeTab === cat.id ? ' active' : '');
-      btn.innerHTML = `${cat.icon} ${cat.name} <span class="tab-count">${count}</span>`;
-      btn.onclick = () => { activeTab = cat.id; renderTabs(); renderCard(); };
-      tabsEl.appendChild(btn);
-    });
-    const addBtn = document.createElement('button');
-    addBtn.className = 'add-cat-btn';
-    addBtn.textContent = '＋ Catégorie';
-    addBtn.onclick = openModal;
-    tabsEl.appendChild(addBtn);
-  }
-
-  // ── CARD ──
-  function renderCard() {
-    if (!activeTab) { card.innerHTML = '<div class="empty"><span>🌿</span>Aucune catégorie.</div>'; return; }
-    const cat = categories.find(c => c.id === activeTab);
-    if (!cat) return;
-
-    if (!unsubs[cat.id]) {
-      unsubs[cat.id] = onSnapshot(
-        query(collection(db, 'categories', cat.id, 'items'), orderBy('createdAt')),
-        snap => {
-          items[cat.id] = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-          renderTabs();
-          if (activeTab === cat.id) renderCard();
-        }
-      );
-    }
-
-    const filter  = filterMode[cat.id] || 'all';
-    const all     = items[cat.id] || [];
-    const visible = all.filter(i =>
-      filter === 'todo' ? !i.done : filter === 'done' ? i.done : true
     );
+  }
 
-    card.innerHTML = `
-      <div class="add-form">
-        <input type="text" id="newItemInput" placeholder="Ajouter à ${cat.name}…" />
-        <button id="addBtn" title="Ajouter">＋</button>
+  const filter = filterMode[cat.id] || 'all';
+  const all = items[cat.id] || [];
+  const visible = all.filter(i =>
+    filter === 'todo' ? !i.done : filter === 'done' ? i.done : true
+  );
+
+  card.innerHTML = `
+    <div class="add-form">
+      <input type="text" id="newItemInput" placeholder="Ajouter à ${cat.name}…" />
+      <button id="addBtn" title="Ajouter">＋</button>
+    </div>
+    <div class="section-meta">
+      <span class="section-title">${cat.icon} ${cat.name}</span>
+      <div class="filter-btns">
+        <button class="filter-btn ${filter==='all'?'active':''}" data-f="all">Tout</button>
+        <button class="filter-btn ${filter==='todo'?'active':''}" data-f="todo">À faire</button>
+        <button class="filter-btn ${filter==='done'?'active':''}" data-f="done">Fait</button>
       </div>
-      <div class="section-meta">
-        <span class="section-title">${cat.icon} ${cat.name}</span>
-        <div class="filter-btns">
-          <button class="filter-btn ${filter==='all'?'active':''}"  data-f="all">Tout</button>
-          <button class="filter-btn ${filter==='todo'?'active':''}" data-f="todo">À faire</button>
-          <button class="filter-btn ${filter==='done'?'active':''}" data-f="done">Fait</button>
-        </div>
-      </div>
-      <ul class="items-list" id="itemsList"></ul>
-    `;
+    </div>
+    <ul class="items-list" id="itemsList"></ul>
+  `;
 
-    document.getElementById('addBtn').onclick = submitItem;
-    document.getElementById('newItemInput').onkeydown = e => { if (e.key === 'Enter') submitItem(); };
-    card.querySelectorAll('.filter-btn').forEach(b => {
-      b.onclick = () => { filterMode[activeTab] = b.dataset.f; renderCard(); };
-    });
+  document.getElementById('addBtn').onclick = submitItem;
+  document.getElementById('newItemInput').onkeydown = e => { if (e.key === 'Enter') submitItem(); };
+  card.querySelectorAll('.filter-btn').forEach(b => {
+    b.onclick = () => { filterMode[activeTab] = b.dataset.f; renderCard(); };
+  });
 
-    const list = document.getElementById('itemsList');
-    if (!visible.length) {
-      list.innerHTML = `<li class="empty"><span>${cat.icon}</span>Rien ici pour l'instant… ajoutez quelque chose !</li>`;
+  const list = document.getElementById('itemsList');
+  if (!visible.length) {
+    list.innerHTML = `<li class="empty"><span>${cat.icon}</span>Rien ici pour l'instant… ajoutez quelque chose !</li>`;
+  } else {
+    visible.forEach(item => list.appendChild(buildItem(cat, item)));
+  }
+}
+
+function buildItem(cat, item) {
+  const li = document.createElement('li');
+  li.className = 'item' + (item.done ? ' done' : '');
+  li.dataset.id = item.id;
+  const isCheck = cat.style === 'checkbox';
+
+  li.innerHTML = `
+    ${isCheck
+      ? `<div class="item-check ${item.done ? 'checked' : ''}"></div>`
+      : `<div class="item-bullet ${item.done ? 'done-b' : ''}"></div>`}
+    <span class="item-text">${esc(item.text)}</span>
+    <div class="item-actions">
+      <button class="action-btn edit-btn" title="Modifier">✏️</button>
+      <button class="action-btn del" title="Supprimer">🗑️</button>
+    </div>
+  `;
+
+  if (isCheck) {
+    li.querySelector('.item-check').onclick = () => toggleDone(item.id, !item.done);
+  }
+  li.querySelector('.edit-btn').onclick = () => startEdit(li, item);
+  li.querySelector('.del').onclick = () => removeItem(item.id);
+  return li;
+}
+
+// ── ACTIONS ITEMS ──
+async function submitItem() {
+  const input = document.getElementById('newItemInput');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  await addDoc(collection(db, 'categories', activeTab, 'items'), {
+    text, done: false, createdAt: serverTimestamp()
+  });
+  showToast('Ajouté ✓');
+}
+
+async function toggleDone(id, done) {
+  await updateDoc(doc(db, 'categories', activeTab, 'items', id), { done });
+}
+
+async function removeItem(id) {
+  await deleteDoc(doc(db, 'categories', activeTab, 'items', id));
+  showToast('Supprimé');
+}
+
+function startEdit(li, item) {
+  const textEl = li.querySelector('.item-text');
+  const inp = document.createElement('input');
+  inp.className = 'item-edit-input';
+  inp.value = item.text;
+  textEl.replaceWith(inp);
+  inp.focus();
+  const save = async () => {
+    const val = inp.value.trim();
+    if (val && val !== item.text) {
+      await updateDoc(doc(db, 'categories', activeTab, 'items', item.id), { text: val });
     } else {
-      visible.forEach(item => list.appendChild(buildItem(cat, item)));
+      renderCard();
     }
-  }
-
-  function buildItem(cat, item) {
-    const li = document.createElement('li');
-    li.className = 'item' + (item.done ? ' done' : '');
-    li.dataset.id = item.id;
-    const isCheck = cat.style === 'checkbox';
-    li.innerHTML = `
-      ${isCheck
-        ? `<div class="item-check ${item.done ? 'checked' : ''}"></div>`
-        : `<div class="item-bullet ${item.done ? 'done-b' : ''}"></div>`}
-      <span class="item-text">${esc(item.text)}</span>
-      <div class="item-actions">
-        <button class="action-btn edit-btn" title="Modifier">✏️</button>
-        <button class="action-btn del" title="Supprimer">🗑️</button>
-      </div>
-    `;
-    if (isCheck) {
-      li.querySelector('.item-check').onclick = () => toggleDone(item.id, !item.done);
-    }
-    li.querySelector('.edit-btn').onclick = () => startEdit(li, item);
-    li.querySelector('.del').onclick = () => removeItem(item.id);
-    return li;
-  }
-
-  // ── ACTIONS ──
-  async function submitItem() {
-    const input = document.getElementById('newItemInput');
-    const text = input.value.trim();
-    if (!text) return;
-    input.value = '';
-    await addDoc(collection(db, 'categories', activeTab, 'items'), {
-      text, done: false, createdAt: serverTimestamp()
-    });
-    showToast('Ajouté ✓');
-  }
-
-  async function toggleDone(id, done) {
-    await updateDoc(doc(db, 'categories', activeTab, 'items', id), { done });
-  }
-
-  async function removeItem(id) {
-    await deleteDoc(doc(db, 'categories', activeTab, 'items', id));
-    showToast('Supprimé');
-  }
-
-  function startEdit(li, item) {
-    const textEl = li.querySelector('.item-text');
-    const inp = document.createElement('input');
-    inp.className = 'item-edit-input';
-    inp.value = item.text;
-    textEl.replaceWith(inp);
-    inp.focus();
-    const save = async () => {
-      const val = inp.value.trim();
-      if (val && val !== item.text) {
-        await updateDoc(doc(db, 'categories', activeTab, 'items', item.id), { text: val });
-      } else {
-        renderCard();
-      }
-    };
-    inp.onblur = save;
-    inp.onkeydown = e => {
-      if (e.key === 'Enter') inp.blur();
-      if (e.key === 'Escape') renderCard();
-    };
-  }
-
-  // ── CATÉGORIES ──
-  window.openModal  = () => document.getElementById('catModal').style.display = 'flex';
-  window.closeModal = () => document.getElementById('catModal').style.display = 'none';
-  window.addCategory = async () => {
-    const name = document.getElementById('catName').value.trim();
-    const icon = document.getElementById('catIcon').value.trim() || '📝';
-    const style = document.getElementById('catStyle').value;
-    if (!name) return;
-    await addDoc(collection(db, 'categories'), {
-      name, icon, style, order: categories.length, createdAt: serverTimestamp()
-    });
-    closeModal();
-    document.getElementById('catName').value = '';
-    document.getElementById('catIcon').value = '';
-    showToast(`"${name}" créé ✓`);
   };
+  inp.onblur = save;
+  inp.onkeydown = e => {
+    if (e.key === 'Enter') inp.blur();
+    if (e.key === 'Escape') renderCard();
+  };
+}
 
-  // ── UTILS ──
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2100);
-  }
-  function esc(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+// ── MODAL NOUVELLE CATÉGORIE ──
+window.openModal = () => document.getElementById('catModal').style.display = 'flex';
+window.closeModal = () => document.getElementById('catModal').style.display = 'none';
+
+window.addCategory = async () => {
+  const name = document.getElementById('catName').value.trim();
+  const icon = document.getElementById('catIcon').value.trim() || '📝';
+  const style = document.getElementById('catStyle').value;
+  if (!name) return;
+  await addDoc(collection(db, 'categories'), {
+    name, icon, style, order: categories.length, createdAt: serverTimestamp()
+  });
+  closeModal();
+  document.getElementById('catName').value = '';
+  document.getElementById('catIcon').value = '';
+  showToast(`"${name}" créé ✓`);
+};
+
+// ── MODAL ÉDITION CATÉGORIE ──
+function openEditModal(catId) {
+  const cat = categories.find(c => c.id === catId);
+  if (!cat) return;
+  editingCatId = catId;
+  document.getElementById('editCatName').value = cat.name;
+  document.getElementById('editCatIcon').value = cat.icon;
+  document.getElementById('editCatStyle').value = cat.style || 'checkbox';
+  document.getElementById('editCatModal').style.display = 'flex';
+}
+
+window.closeEditModal = () => {
+  document.getElementById('editCatModal').style.display = 'none';
+  editingCatId = null;
+};
+
+window.saveCategory = async () => {
+  if (!editingCatId) return;
+  const name = document.getElementById('editCatName').value.trim();
+  const icon = document.getElementById('editCatIcon').value.trim() || '📝';
+  const style = document.getElementById('editCatStyle').value;
+  if (!name) return;
+  await updateDoc(doc(db, 'categories', editingCatId), { name, icon, style });
+  closeEditModal();
+  showToast('Catégorie mise à jour ✓');
+};
+
+window.deleteCategory = async () => {
+  if (!editingCatId) return;
+  const cat = categories.find(c => c.id === editingCatId);
+  if (!cat) return;
+
+  const confirmed = window.confirm(
+    `Supprimer la catégorie "${cat.icon} ${cat.name}" ?\n\nTous les éléments qu'elle contient seront aussi supprimés. Cette action est irréversible.`
+  );
+  if (!confirmed) return;
+
+  // Supprimer tous les items de la catégorie d'abord
+  const itemsSnap = await getDocs(collection(db, 'categories', editingCatId, 'items'));
+  for (const itemDoc of itemsSnap.docs) {
+    await deleteDoc(itemDoc.ref);
   }
 
-  bootstrap();
+  // Libérer le listener
+  if (unsubs[editingCatId]) {
+    unsubs[editingCatId]();
+    delete unsubs[editingCatId];
+  }
+  delete items[editingCatId];
+
+  // Si l'onglet actif est celui supprimé, passer au suivant
+  if (activeTab === editingCatId) {
+    const remaining = categories.filter(c => c.id !== editingCatId);
+    activeTab = remaining.length ? remaining[0].id : null;
+  }
+
+  await deleteDoc(doc(db, 'categories', editingCatId));
+  closeEditModal();
+  showToast(`"${cat.name}" supprimé`);
+};
+
+// ── UTILS ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2100);
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+bootstrap();
 </script>
 </body>
 </html>
