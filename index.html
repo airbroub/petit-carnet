@@ -372,7 +372,7 @@ function renderCard() {
   const filter = filterMode[cat.id] || 'all';
   const all = items[cat.id] || [];
   const visible = all
-    .filter(i => filter === 'todo' ? !i.done : filter === 'done' ? i.done : true
+    .filter(i => filter === 'todo' ? !i.done : filter === 'done' ? i.done : true)
     .sort((a, b) => a.done - b.done);
   
 
