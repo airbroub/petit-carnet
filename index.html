@@ -374,7 +374,7 @@ function renderCard() {
   const visible = all
     .filter(i => filter === 'todo' ? !i.done : filter === 'done' ? i.done : true
     .sort((a, b) => a.done - b.done);
-  );
+  
 
   card.innerHTML = `
     <div class="add-form">
